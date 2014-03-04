@@ -1,0 +1,24 @@
+{
+    "name": "llaumgui/ezplanet-bundle",
+    "description": "Planet for eZ Publish 5.",
+    "keywords": ["ezpublish planet"],
+    "homepage": "https://projects.llaumgui.com/p/ezplanet",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Guillaume Kulakowski",
+            "email": "guillaume@llaumgui.com"
+            "homepage": "http://www.llaumgui.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "ezsystems/ezpublish-kernel": "*",
+        "ezsystems/comments-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": { "GuillaumeKulakowski\\EzPlanetBundle": "" }
+    },
+    "target-dir": "GuillaumeKulakowski/EzPlanetBundle"
+}
