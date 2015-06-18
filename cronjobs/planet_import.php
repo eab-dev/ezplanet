@@ -24,7 +24,7 @@ foreach ( $planet->getBloggers() as $rssImport )
     }
     $addCount = 0;
 
-    $cli->output( 'RSSImport '.$rssImport->attribute( 'name' ).': Starting.' );
+    $cli->output( 'RSSImport '.$rssImport->attribute( 'name' ).': importing from ' . $rssSource );
 
     $xmlData = eZHTTPTool::getDataByURL( $rssSource, false, 'eZ Publish RSS Import' );
     if ( $xmlData === false )
@@ -34,6 +34,9 @@ foreach ( $planet->getBloggers() as $rssImport )
         $planet->blogKO++;
         continue;
     }
+
+    // Convert non-breaking space entities that break loadXML()
+    $xmlData = preg_replace( "/&(amp;)?nbsp;/", " ", $xmlData );
 
     // Create DomDocument from http data
     $domDocument = new DOMDocument( '1.0', 'utf-8' );
